@@ -5,7 +5,8 @@ USE db_pizzaria_legal;
 -- Tabela Independente
 CREATE TABLE tb_categorias(
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
-	descricao VARCHAR(255) NOT NULL
+	descricao VARCHAR(255) NOT NULL,
+    tamanho VARCHAR(255)
 );
 
 -- Tabela Dependente
@@ -69,7 +70,7 @@ SELECT * FROM tb_pizzas INNER JOIN tb_categorias
 ON tb_pizzas.categoriaid = tb_categorias.id
 ORDER BY tb_pizzas.id;
 
--- Retorna os dados das duas tabelas unidos, porém apenas ds categoria selecionada
+-- Retorna os dados das duas tabelas unidos, porém apenas a categoria selecionada
 SELECT sabor, preco, quantidade, tb_categorias.descricao
 FROM tb_pizzas INNER JOIN tb_categorias
 ON tb_pizzas.categoriaid = tb_categorias.id
